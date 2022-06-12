@@ -1,3 +1,5 @@
+import * as os from 'os';
+
 export const getSystemUserName = async () => {
-  console.log(`Current system user name: ${process.env.USERNAME}`);
+  console.log(`Current system user name: ${os.userInfo().username}`);
 }
