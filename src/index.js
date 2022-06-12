@@ -10,6 +10,7 @@ import { rm } from "./fs/rm.js";
 import { cat } from "./fs/cat.js";
 import { add } from "./fs/add.js";
 import { rn } from "./fs/rn.js";
+import { cp } from "./fs/cp.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -57,9 +58,13 @@ export const runApp = async () => {
       case "rn":
         await rn(inputToString, currentDir);
         break;
+      case "cp":
+        await cp(inputToString, currentDir);
+        break;
       default:
         console.error("Invalid input");
     }
+    console.log(`You are currently in ${currentDir}`);
   }).on("close", () => {
     console.log(`Thank you for using File Manager, ${userName}!`);
   });
