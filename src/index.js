@@ -1,8 +1,8 @@
 import * as readline from "readline";
 import { getUserName } from "./utils/getUserName.js";
-import { getHomeDir } from "./operations/getHomeDir.js";
+import { getHomeDir } from "./os/getHomeDir.js";
 import { getCommand } from "./utils/getCommand.js";
-import { getSystemInfo } from "./operations/getSystemInfo.js";
+import { getSystemInfo } from "./os/getSystemInfo.js";
 import { up } from "./operations/up.js";
 import { cd } from "./operations/cd.js";
 import { ls } from "./operations/ls.js";
