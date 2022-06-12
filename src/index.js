@@ -1,11 +1,11 @@
-import * as readline from 'readline';
-import { getUserName } from '../services/getUserName.js';
-import { getHomeDir } from '../services/getHomeDir.js';
+import * as readline from "readline";
+import { getUserName } from "./utils/getUserName";
+import { getHomeDir } from "./utils/getHomeDir.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'Enter your command:\n'
+  prompt: "Enter your command:\n",
 });
 
 export const runApp = async () => {
@@ -17,17 +17,19 @@ export const runApp = async () => {
 
   rl.prompt();
 
-  rl.on('line', (input) => {
-    const inputToString = input.trim().toLowerCase();
+  rl.on("line", (input) => {
     switch (inputToString) {
-      case '.exit':
-      case 'exit':
+      case ".exit":
+      case "exit":
         process.exit();
+      case "os":
+        process.exit();
+        break;
       
     }
-  }).on('close', () => {
+  }).on("close", () => {
     console.log(`Thank you for using File Manager, ${userName}!`);
-    });
-}
+  });
+};
 
 runApp();
