@@ -8,6 +8,7 @@ import { cd } from "./navigate/cd.js";
 import { ls } from "./navigate/ls.js";
 import { rm } from "./fs/rm.js";
 import { cat } from "./fs/cat.js";
+import { add } from "./fs/add.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -48,6 +49,9 @@ export const runApp = async () => {
         break;
       case "cat":
         await cat(inputToString, currentDir);
+        break;
+      case "add":
+        await add(inputToString, currentDir);
         break;
       default:
         console.error("Invalid input");
