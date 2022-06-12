@@ -3,9 +3,10 @@ import { getUserName } from "./utils/getUserName.js";
 import { getHomeDir } from "./os/getHomeDir.js";
 import { getCommand } from "./utils/getCommand.js";
 import { getSystemInfo } from "./os/getSystemInfo.js";
-import { up } from "./operations/up.js";
-import { cd } from "./operations/cd.js";
-import { ls } from "./operations/ls.js";
+import { up } from "./navigate/up.js";
+import { cd } from "./navigate/cd.js";
+import { ls } from "./navigate/ls.js";
+import { rm } from "./fs/rm.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -40,6 +41,9 @@ export const runApp = async () => {
         break;
       case "ls":
         await ls(currentDir);
+        break;
+      case "rm":
+        await rm(inputToString, currentDir);
         break;
     }
     console.log(`You are currently in ${currentDir}`);

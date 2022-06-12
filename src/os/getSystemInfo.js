@@ -1,6 +1,6 @@
 import { getEOL } from "./getEOL.js";
 import { getCPU } from "./getCPU.js";
-import { getHomeDir } from "../operations/getHomeDir.js";
+import { getHomeDir } from "./getHomeDir.js";
 import { getSystemUserName } from "./getSystemUserName.js";
 import { getCPUArchitecture } from "./getCPUArchitecture.js";
 
