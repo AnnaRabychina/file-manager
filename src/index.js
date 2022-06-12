@@ -13,6 +13,7 @@ import { rn } from "./fs/rn.js";
 import { cp } from "./fs/cp.js";
 import { mv } from "./fs/mv.js";
 import { hash } from "./hash/hash.js";
+import { compress } from "./zip/compress.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -68,6 +69,9 @@ export const runApp = async () => {
         break;
       case "hash":
         await hash(inputToString, currentDir);
+        break;
+      case "compress":
+        await compress(inputToString, currentDir);
         break;
       default:
         console.error("Invalid input");
