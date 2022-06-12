@@ -11,6 +11,7 @@ import { cat } from "./fs/cat.js";
 import { add } from "./fs/add.js";
 import { rn } from "./fs/rn.js";
 import { cp } from "./fs/cp.js";
+import { mv } from "./fs/mv.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -60,6 +61,9 @@ export const runApp = async () => {
         break;
       case "cp":
         await cp(inputToString, currentDir);
+        break;
+      case "mv":
+        await mv(inputToString, currentDir);
         break;
       default:
         console.error("Invalid input");
