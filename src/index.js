@@ -2,7 +2,8 @@ import * as readline from "readline";
 import { getUserName } from "./utils/getUserName.js";
 import { getHomeDir } from "./operations/getHomeDir.js";
 import { getCommand } from "./utils/getCommand.js";
-import { showSystemInfo } from "./operations/showSystemInfo.js";
+import { getSystemInfo } from "./operations/getSystemInfo.js";
+import { up } from "./operations/up.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -29,7 +30,11 @@ export const runApp = async () => {
       case "os":
         getSystemInfo(inputToString);
         break;
+      case "up":
+        currentDir = await up(currentDir);
+        break;
     }
+    console.log(`You are currently in ${currentDir}`);
   }).on("close", () => {
     console.log(`Thank you for using File Manager, ${userName}!`);
   });

@@ -6,7 +6,7 @@ import { getCPUArchitecture } from "./getCPUArchitecture.js";
 
 export const getSystemInfo = async (input) => {
   const commandArr = input.split(" ");
-  if (commandArr.length > 1) {
+  if (commandArr.length === 1) {
     const params = input.split(" ")[1];
     switch (params) {
       case "--eol":
