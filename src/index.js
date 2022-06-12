@@ -5,6 +5,7 @@ import { getCommand } from "./utils/getCommand.js";
 import { getSystemInfo } from "./operations/getSystemInfo.js";
 import { up } from "./operations/up.js";
 import { cd } from "./operations/cd.js";
+import { ls } from "./operations/ls.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -36,6 +37,9 @@ export const runApp = async () => {
         break;
       case "cd":
         currentDir = await cd(inputToString, currentDir);
+        break;
+      case "ls":
+        await ls(currentDir);
         break;
     }
     console.log(`You are currently in ${currentDir}`);
