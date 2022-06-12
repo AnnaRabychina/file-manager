@@ -1,6 +1,8 @@
 import * as readline from "readline";
-import { getUserName } from "./utils/getUserName";
-import { getHomeDir } from "./utils/getHomeDir.js";
+import { getUserName } from "./utils/getUserName.js";
+import { getHomeDir } from "./operations/getHomeDir.js";
+import { getCommand } from "./utils/getCommand.js";
+import { showSystemInfo } from "./operations/showSystemInfo.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,15 +19,16 @@ export const runApp = async () => {
 
   rl.prompt();
 
-  rl.on("line", (input) => {
-    switch (inputToString) {
+  rl.on("line", async (input) => {
+    const inputToString = input.trim().toLowerCase();
+    const currentCommand = await getCommand(inputToString);
+    switch (currentCommand) {
       case ".exit":
       case "exit":
         process.exit();
       case "os":
-        process.exit();
+        getSystemInfo(inputToString);
         break;
-      
     }
   }).on("close", () => {
     console.log(`Thank you for using File Manager, ${userName}!`);
